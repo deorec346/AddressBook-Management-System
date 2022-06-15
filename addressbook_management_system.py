@@ -115,8 +115,7 @@ if __name__ == '__main__':
     more_choice = True
     while more_choice:
         print("1. Add an address book\n" "2. Display address book\n"
-              "3. Add contact\n"         "4. Delete contact\n"
-              "5. Edit contact\n"        "6. Display contact\n"
+              "3. Add contact\n"         "4. Display contact\n"
               "0. Exit address book...")
         choice = {1: add_addressbook_name, 2: display_address_book,
                   3: add_contact,
