@@ -64,50 +64,6 @@ def display_address_book():
         print(k, v)
 
 
-def add_contact():
-    """
-    Before adding contact to Addressbook, checking contact is present or not, if contact i not present then add contact.
-    """
-    # print(addressbook_dict)
-    try:
-        address_book_name = input("Enter the name book name to add contact : ")
-        book_obj = addressbook_dict.get(address_book_name)
-        # print(addressbook_dict)
-        if not book_obj:
-            book_obj = AddressBook(address_book_name)
-            addressbook_dict.update({address_book_name: book_obj})
-        # print(addressbook_dict)
-
-        first_name = input("Enter first name \n")
-        last_name = input("Enter last name \n")
-        address = input("Enter address \n")
-        city = input("Enter city \n")
-        state = input("Enter state \n")
-        zip = input("Enter zip code \n")
-        phone = input("Enter phone number \n")
-        email = input("Enter email address \n")
-
-        contact = Contact(first_name, last_name, address, city, state, zip, phone, email)
-        book_obj.add_contact(contact)
-        print("Your Address Book Successfully added")
-    except Exception as e:
-        print("Please enter correct Address book name", e)
-
-
-def display_contact():
-    """
-    Method to Displaying the contact are present in specific Addressbook.
-    :return:
-    """
-    addressbook_name = input("Enter Book Name to display : ")
-    book_obj = addressbook_dict.get(addressbook_name)
-    if not book_obj:
-        print("Book not found")
-        return
-    # print(isinstance(book_obj, AddressBook))
-    book_obj.display_data_string()
-
-
 if __name__ == '__main__':
     print("Welcome to Address Book Management System")
     address_book = AddressBook("Address_book_name")
@@ -115,12 +71,9 @@ if __name__ == '__main__':
     more_choice = True
     while more_choice:
         print("1. Add an address book\n" "2. Display address book\n"
-              "3. Add contact\n"         "4. Delete contact\n"
-              "5. Edit contact\n"        "6. Display contact\n"
               "0. Exit address book...")
         choice = {1: add_addressbook_name, 2: display_address_book,
-                  3: add_contact,
-                  4: display_contact}
+                 }
         try:
             user_input = int(input("Enter choice: "))
             if user_input != 0:
