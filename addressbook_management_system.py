@@ -106,6 +106,24 @@ def display_contact():
         return
     # print(isinstance(book_obj, AddressBook))
     book_obj.display_data_string()
+    
+    
+def delete_contact():
+    """
+    Method to delete contact from Addressbook
+    :return:
+    """
+    try:
+        addressbook_name = input("Enter Address Book Name : ")
+        book_obj = addressbook_dict.get(addressbook_name)
+        if not book_obj:
+            print("Book not found")
+            return
+        first_name = input("Enter the first name you want to delete : ")
+        book_obj.delete_contact(first_name)
+    except Exception as e:
+        print(" Please enter valid input", e)
+
 
 
 if __name__ == '__main__':
@@ -116,7 +134,6 @@ if __name__ == '__main__':
     while more_choice:
         print("1. Add an address book\n" "2. Display address book\n"
               "3. Add contact\n"         "4. Delete contact\n"
-              "5. Edit contact\n"        "6. Display contact\n"
               "0. Exit address book...")
         choice = {1: add_addressbook_name, 2: display_address_book,
                   3: add_contact,
